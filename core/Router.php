@@ -3,6 +3,7 @@
 namespace App\Core;
 
 use Exception;
+use App\Core\Exceptions\RouteNotFoundException;
 
 class Router
 {
@@ -66,7 +67,7 @@ class Router
             );
         }
 
-        throw new Exception('No route defined for this URI.');
+        throw new RouteNotFoundException('No route defined for this URI.');
     }
 
     /**
