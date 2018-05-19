@@ -7,5 +7,6 @@ agregados para ser utilizado como material de PAW - UNLu.
 
  - Ejecutar los migrations del directorio `sql/` en orden
  - Crear un archivo `config.php` (Hay un ejemplo para copiar en `config.php.example`)
+ - Ejecutar `composer install`
 
 ## Deploy / ejecución
