@@ -4,5 +4,8 @@
             "./"
         ],
         "files": ["core/helpers.php"]
+    },
+    "require": {
+        "monolog/monolog": "^1.23"
     }
 }

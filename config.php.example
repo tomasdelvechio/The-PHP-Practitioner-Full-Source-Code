@@ -1,5 +1,7 @@
 <?php
 
+use Monolog\Logger as MonologLogger;
+
 return [
     'database' => [
         'name' => 'mytodo',
@@ -9,5 +11,8 @@ return [
         'options' => [
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
         ]
+    ],
+    'logger' => [
+    	'level' => MonologLogger::INFO
     ]
 ];
