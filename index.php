@@ -11,8 +11,9 @@ try {
 	    ->direct(Request::uri(), Request::method());
 } catch (RouteNotFoundException $e) {
 	http_response_code(404);
-	echo "404 - Not Found";
+	Router::load('app/routes.php')->direct('not_found', 'GET');
 } catch (Exception $e) {
 	http_response_code(500);
-	echo "500 - Internal Server Error";
+	Router::load('app/routes.php')->direct('internal_error', 'GET');
 }
+
