@@ -6,6 +6,7 @@
         "files": ["core/helpers.php"]
     },
     "require": {
-        "monolog/monolog": "^1.23"
+        "monolog/monolog": "^1.23",
+        "twig/twig": "^2.0"
     }
 }
