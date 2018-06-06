@@ -1,5 +1,7 @@
 <?php
 
+use App\Core\App;
+
 /**
  * Require a view.
  *
@@ -8,9 +10,10 @@
  */
 function view($name, $data = [])
 {
-    extract($data);
+    $logger = App::get('logger');
+    $logger->debug('Datos en la vista', $data);
 
-    return require "app/views/{$name}.view.php";
+    return App::get('twig')->render("{$name}.html", $data);
 }
 
 /**
