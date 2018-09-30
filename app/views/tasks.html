@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Lista de Tareas{% endblock %}
+
+{% block header %}
+    {{ include('partials/nav.html') }}
+{% endblock %}
+
+{% block head %}
+    {{ parent() }}
+    <meta name="keywords" content="PAW,2018,Templates,PHP">
+{% endblock %}
+
+{% block main %}
+<h2>Tareas</h2>
+<table>
+{% for task in tasks %}
+<tr>
+    <td>{{ task.description }}</td>
+    <td>{{ task.completed ? "Completa" : "Pendiente" }}</td>
+</tr>
+{% else %}
+<span>No hay tareas registradas</span>
+{% endfor %}
+</table>
+{% endblock %}
