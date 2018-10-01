@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use App\core\Controller;
+use App\Core\Controller;
 use App\Models\Tasks;
 
 class TasksController extends Controller
