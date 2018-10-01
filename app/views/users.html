@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}Lista de Usuarios{% endblock %}
+
+{% block header %}
+    {{ include('partials/nav.html') }}
+{% endblock %}
+
+{% block head %}
+    {{ parent() }}
+    <meta name="keywords" content="PAW,2018,Templates,PHP">
+{% endblock %}
+
+{% block main %}
+<h2>Usuarios</h2>
+<table>
+{% for user in users %}
+<tr>
+    <td>{{ user.name }}</td>
+</tr>
+{% else %}
+<span>No hay tareas registradas</span>
+{% endfor %}
+</table>
+{% endblock %}

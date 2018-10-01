@@ -3,16 +3,23 @@
 namespace App\Controllers;
 
 use App\Core\App;
+use App\Core\Controller;
+use App\Models\Users;
 
-class UsersController
+class UsersController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->model = new Users();
+    }
+
     /**
      * Show all users.
      */
     public function index()
     {
-        $users = App::get('database')->selectAll('users');
-
+        $users = $this->model->get();
         return view('users', compact('users'));
     }
 
@@ -21,10 +28,10 @@ class UsersController
      */
     public function store()
     {
-        App::get('database')->insert('users', [
+        $user = [
             'name' => $_POST['name']
-        ]);
-
+        ];
+        $this->model->insert($user);
         return redirect('users');
     }
 }
