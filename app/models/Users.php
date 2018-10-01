@@ -4,7 +4,7 @@ namespace App\Models;
 
 use App\Core\Model;
 
-class Tasks extends Model
+class Users extends Model
 {
     protected $table = 'users';
 
