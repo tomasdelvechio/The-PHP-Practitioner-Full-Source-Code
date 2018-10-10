@@ -21,6 +21,7 @@ Ejecutar:
 ```
 git clone https://github.com/tomasdelvechio/The-PHP-Practitioner-Full-Source-Code.git paw-mvc/
 cd paw-mvc/
+# Aca irian los pasos de instalación
 php -S localhost:8888
 ```
 
