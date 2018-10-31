@@ -12,6 +12,21 @@ agregados para ser utilizado como material de PAW - UNLu.
   - Configurar la base de datos creada y los usuarios correspondientes
  - Ejecutar `composer install`
 
+### Aclaración
+
+Por cada objeto creado por usted mismo (Model o Controller), debera indicar a
+composer que regenere el autoload:
+
+```
+composer dumpautoload
+```
+
+Si lo que se desea es agregar una nueva libreria de 3ero
+
+```
+composer requiere name/lib:version
+```
+
 ## Deploy / ejecución
 
 ### Local
