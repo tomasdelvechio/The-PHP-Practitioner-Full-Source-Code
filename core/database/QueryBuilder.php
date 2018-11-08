@@ -3,6 +3,7 @@
 namespace App\Core\Database;
 
 use PDO;
+use Exception;
 
 class QueryBuilder
 {
@@ -18,9 +19,10 @@ class QueryBuilder
      *
      * @param PDO $pdo
      */
-    public function __construct($pdo)
+    public function __construct($pdo, $logger = null)
     {
         $this->pdo = $pdo;
+        $this->logger = ($logger) ? $logger : null;
     }
 
     /**
@@ -52,10 +54,16 @@ class QueryBuilder
 
         try {
             $statement = $this->pdo->prepare($sql);
-
             $statement->execute($parameters);
-        } catch (\Exception $e) {
-            //
+        } catch (Exception $e) {
+            $this->sendToLog($e);
+        }
+    }
+
+    private function sendToLog(Exception $e)
+    {
+        if ($this->logger) {
+            $this->logger->error('Error', ["Error" => $e]);
         }
     }
 }

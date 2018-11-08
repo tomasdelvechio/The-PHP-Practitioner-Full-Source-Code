@@ -12,16 +12,17 @@ use Monolog\Logger as MonologLogger;
 App::bind('config', require 'config.php');
 
 /**
- * Load database connection
- */
-App::bind('database', new QueryBuilder(
-    Connection::make(App::get('config')['database'])
-));
-
-/**
  * Load logger object
  */
 App::bind('logger', Logger::getLogger(App::get('config')['logger']['level']));
+
+/**
+ * Load database connection
+ */
+App::bind('database', new QueryBuilder(
+    Connection::make(App::get('config')['database']),
+    App::get('logger')
+));
 
 /**
  * Load template engine
