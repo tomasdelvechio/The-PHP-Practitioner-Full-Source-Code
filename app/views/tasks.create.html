@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}Crear Tarea Nueva{% endblock %}
+
+{% block header %}
+    {{ include('partials/nav.html') }}
+{% endblock %}
+
+{% block head %}
+    {{ parent() }}
+    <meta name="keywords" content="PAW,2018,Templates,PHP">
+{% endblock %}
+
+{% block main %}
+<h2>Crear Tarea</h2>
+<form action="/tasks/save" method="POST">
+    <input type="text" name="description" placeholder="Descripcion de la tarea">
+    <input type="checkbox" name="completed" > ¿Completada?
+    <input type="submit" name="Enviar">
+</form>
+{% endblock %}

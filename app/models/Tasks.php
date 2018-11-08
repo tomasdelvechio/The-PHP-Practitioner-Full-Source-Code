@@ -12,4 +12,9 @@ class Tasks extends Model
     {
         return $this->db->selectAll($this->table);
     }
+
+    public function insert(array $task)
+    {
+        $this->db->insert($this->table, $task);
+    }
 }
