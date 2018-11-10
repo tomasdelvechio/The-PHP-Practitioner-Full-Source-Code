@@ -45,6 +45,7 @@ class QueryBuilder
      */
     public function insert($table, $parameters)
     {
+        $parameters = $this->cleanParameterName($parameters);
         $sql = sprintf(
             'insert into %s (%s) values (%s)',
             $table,
@@ -65,5 +66,20 @@ class QueryBuilder
         if ($this->logger) {
             $this->logger->error('Error', ["Error" => $e]);
         }
+    }
+
+    /**
+     * Limpia guiones - que puedan venir en los nombre de los parametros
+     * ya que esto no funciona con PDO
+     *
+     * Ver: http://php.net/manual/en/pdo.prepared-statements.php#97162
+     */
+    private function cleanParameterName($parameters)
+    {
+        $cleaned_params = [];
+        foreach ($parameters as $name => $value) {
+            $cleaned_params[str_replace('-', '', $name)] = $value ;
+        }
+        return $cleaned_params;
     }
 }
