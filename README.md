@@ -1,3 +1,5 @@
+**Este repo esta ARCHIVADO**: El desarrollo activo de esto se esta realizando en https://github.com/pawunlu/paw-framework
+
 # Proyecto MVC
 
 Un proyecto derivado del tutorial introductorio de Laracast y con algunos
